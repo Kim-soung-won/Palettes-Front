@@ -7,7 +7,7 @@ const connectChat = (e) => {
         console.log(response);
         const encoder = new TextEncoder();
         const encodedNickname = btoa(encoder.encode(response.data.nickname).reduce((data, byte) => data + String.fromCharCode(byte), ''));
-        const redirectUrl = `http://223.130.156.241/chat/${response.data.roomId}-${encodedNickname}`;
+        const redirectUrl = `http://175.45.204.119:3000/chat/${response.data.roomId}-${encodedNickname}`;
         window.location.href = redirectUrl;
     }).catch((error) => {
         console.error(error);
