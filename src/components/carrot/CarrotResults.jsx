@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/carrot/CarrotList.css';
 import image from '../../image/icon-photo.png';
+import { storageURL } from '../../utils/single';
 
 function CarrotResults({carrot}) {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ function CarrotResults({carrot}) {
                 carrot.map(carrot =>
                     <div className="product-item-container" onClick={() => navigate(`/carrot/details/${carrot.carrotId}`)}>
                     <div className="product-item" key={carrot.carrotId}>
-                        <img src={carrot.carrotImg ? `https://kr.object.ncloudstorage.com/palettepets/carrot/img/${carrot.carrotImg}` : image} alt="이미지" className="product-image" />
+                        <img src={carrot.carrotImg ? `${storageURL}/carrot/img/${carrot.carrotImg}` : image} alt="이미지" className="product-image" />
                         <div className="product-info">
                             <div className="product-name">
                                 <div className="product-status">

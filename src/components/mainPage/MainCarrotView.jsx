@@ -13,6 +13,8 @@ import { useSelector } from 'react-redux';
 import connectChat from '../../utils/connectChat';
 import axios from 'axios';
 import {url} from '../../utils/single';
+import { storageURL } from '../../utils/single';
+import icon_image from '../../image/icon-image.png';
 
 const MainCarrotView = () => {
     const [modal, setModal] = useState({});
@@ -99,8 +101,8 @@ const MainCarrotView = () => {
                 <div key={carrot.carrotId} className={BoardViewStyle.postsList}>
                     <div className={BoardViewStyle.post}>
                         <div className={BoardViewStyle.postHeader}>
-                            <img src={carrot.carrotImage ? `https://kr.object.ncloudstorage.com/palettepets/carrot/img/${carrot.carrotImage}`
-                                : `https://kr.object.ncloudstorage.com/palettepets/member/Profile/icon-image.png`}
+                            <img src={carrot.carrotImage ? `${storageURL}/carrot/img/${carrot.carrotImage}`
+                                : `${icon_image}`}
                             alt="User" className={BoardViewStyle.postUserImage} onClick={() => openModal(carrot.carrotId)} />
                             <div onClick={()=>connectCarrot(carrot.carrotId)}>
                                 {/* <p className={BoardViewStyle.postUserName}>{carrot.memberNickname}님</p> */}
@@ -121,8 +123,8 @@ const MainCarrotView = () => {
                             aria-labelledby="modal-modal-title"
                             aria-describedby="modal-modal-description">
                             <Box sx={style}>
-                                <img src={carrot.carrotImage ? `https://kr.object.ncloudstorage.com/palettepets/carrot/img/${carrot.carrotImage}`
-                                : `https://kr.object.ncloudstorage.com/palettepets/member/Profile/icon-image.png`}
+                                <img src={carrot.carrotImage ? `${storageURL}/carrot/img/${carrot.carrotImage}`
+                                : `${icon_image}`}
                                 alt="User" 
                                 style={{width: '100%', height: '30%', objectFit: 'none'}}/>
                                 {/* <div className={BoardViewStyle.ModalContainer}>

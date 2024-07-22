@@ -11,12 +11,13 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {petUpdateRequest} from "../../service/petApi.jsx";
 import {useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
+import { storageURL } from "../../utils/single.js";
 
 const PetUpdateForm = ({ closeModal, pet }) => {
 
     const [petName, setPetName] = useState(pet.petName);
     const [petImage, setPetImage] = useState(pet.petImage);
-    const [petImagePreview, setPetImagePreview] = useState("https://kr.object.ncloudstorage.com/palettepets/pet/" + pet.petImage);
+    const [petImagePreview, setPetImagePreview] = useState(`${storageURL}/pet/` + pet.petImage);
     const [petCategory1, setPetCategory1] = useState(pet.petCategory1);
     const [petCategory2, setPetCategory2] = useState(pet.petCategory2);
     const [petGender, setPetGender] = useState(pet.petGender);

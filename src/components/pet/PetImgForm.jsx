@@ -6,6 +6,7 @@ import PetUpdateForm from "./PetUpdateForm.jsx";
 import {useEffect, useState} from "react";
 import PetImgRegisterForm from "./PetImgRegisterForm.jsx";
 import {petImgDeleteRequest, petImgListRequest} from "../../service/petApi.jsx";
+import { storageURL } from '../../utils/single.js';
 
 const PetImgForm = ({ closePictures, petId }) => {
 
@@ -54,8 +55,8 @@ const PetImgForm = ({ closePictures, petId }) => {
                         photos.map((photo) => (
                             <ImageListItem key={photo.imgPetId}>
                                 <img
-                                    src={`https://kr.object.ncloudstorage.com/palettepets/pet/img/${photo.imgUrl}?w=248&fit=crop&auto=format`}
-                                    srcSet={`https://kr.object.ncloudstorage.com/palettepets/pet/img/${photo.imgUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                    src={`${storageURL}/pet/img/${photo.imgUrl}?w=248&fit=crop&auto=format`}
+                                    srcSet={`${storageURL}/pet/img/${photo.imgUrl}?w=248&fit=crop&auto=format&dpr=2 2x`}
                                     alt={photo.imgPetId}
                                     loading="lazy"
                                 />

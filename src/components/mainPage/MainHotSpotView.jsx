@@ -12,7 +12,7 @@ import BoardViewStyle from '../../styles/mainPage/boardView.module.css'
 import { useSelector } from 'react-redux';
 import connectChat from '../../utils/connectChat';
 import axios from 'axios';
-import {url} from '../../utils/single';
+import {storageURL, url} from '../../utils/single';
 
 const MainHotSpotView = () => {
     const [modal, setModal] = useState({});
@@ -93,9 +93,7 @@ const MainHotSpotView = () => {
                 <div key={hotSpot.hotSpotId} className={BoardViewStyle.postsList}>
                     <div className={BoardViewStyle.post}>
                         <div className={BoardViewStyle.postHeader}>
-                            <img src = {"https://kr.object.ncloudstorage.com/palettepets/hotspot/" + hotSpot.imgUrl}
-                            /* <img src={carrot.carrotImage ? `https://kr.object.ncloudstorage.com/palettepets/member/Profile/${carrot.carrotImage}`
-                                : `https://kr.object.ncloudstorage.com/palettepets/member/Profile/icon-image.png`} */
+                            <img src = {`${storageURL}/hotspot/` + hotSpot.imgUrl}
                             alt="User" className={BoardViewStyle.postUserImage} onClick={() => openModal(hotSpot.hotSpotId)} />
                             <div>
                                 <Link to={`/hotspot/details/${hotSpot.hotSpotId}`} className={"detailLink"}>
@@ -118,20 +116,8 @@ const MainHotSpotView = () => {
                             aria-labelledby="modal-modal-title"
                             aria-describedby="modal-modal-description">
                             <Box sx={style}>
-                                {/* <p className={BoardViewStyle.postUserName}>{carrot.memberNickname}</p> */}
-                                {/*<img src = {`https://kr.object.ncloudstorage.com/palettepets/member/Profile/icon-image.png`}*/}
-                                {/*alt="User"/>*/}
-                                <img src={"https://kr.object.ncloudstorage.com/palettepets/hotspot/" + hotSpot.imgUrl} // 디테일 이미지 URL 사용
+                                <img src={`${storageURL}/hotspot/` + hotSpot.imgUrl} // 디테일 이미지 URL 사용
                                      alt="HotSpot" />
-                                {/* <img src={carrot.carrotImage ? `https://kr.object.ncloudstorage.com/palettepets/member/Profile/${carrot.carrotImage}`
-                                : `https://kr.object.ncloudstorage.com/palettepets/member/Profile/icon-image.png`}
-                                alt="User" /> */}
-                                {/* <div className={BoardViewStyle.ModalContainer}>
-                                    <button className={BoardViewStyle.chackBt}>팔로우</button>
-                                    <button className={BoardViewStyle.chackBt} onClick={requestChat(hotSpots.userId)}>
-                                        <span style={{ color: '#ffffff' }}>1:1 대화</span>
-                                    </button>
-                                </div> */}
                             </Box>
                         </Modal>
                     </div>

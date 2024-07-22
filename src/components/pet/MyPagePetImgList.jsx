@@ -9,6 +9,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {useNavigate} from "react-router-dom";
+import { storageURL } from "../../utils/single.js";
 
 const MyPagePetImgList = () => {
     const [list, setList] = useState([]);
@@ -79,7 +80,7 @@ const MyPagePetImgList = () => {
                                         height: '100%',
                                         objectFit: 'cover',
                                     }}
-                                    src={`https://kr.object.ncloudstorage.com/palettepets/pet/img/${img.imgUrl}`}
+                                    src={`${storageURL}/pet/img/${img.imgUrl}`}
                                     alt={img.petId}
                                     onClick={() => navigate(`/pet/details/${img.petId}`)}
                                 />

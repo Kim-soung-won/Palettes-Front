@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import carrotService from '../../service/carrotService';
 import '../../styles/carrot/CarrotForm.css';
 import ImageUpdate from './ImageUpdate';
-
+import { storageURL } from '../../utils/single';
 
 const imageAsFile = (url) => {
-  const fullUrl = `https://kr.object.ncloudstorage.com/palettepets/carrot/img/${url}`
+  const fullUrl = `${storageURL}/carrot/img/${url}`
   const blob = new Blob([JSON.stringify(fullUrl)], { type: "application/json" });
   const file = new File([blob], url, { type: blob.type });
   return file
@@ -38,7 +38,7 @@ const CarrotUpdateForm = () => {
       setCarrotContent(res.data.carrotContent);
       setCarrotPrice(res.data.carrotPrice);
 
-      const imgArray = res.data.imgList && res.data.imgList.map(image => `https://kr.object.ncloudstorage.com/palettepets/carrot/img/${image}`)
+      const imgArray = res.data.imgList && res.data.imgList.map(image => `${storageURL}/carrot/img/${image}`)
       console.log("real = " + imgArray);
 
       const files = res.data.imgList && res.data.imgList.map((item) => 

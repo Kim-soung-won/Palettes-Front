@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { myPageProfile, myPageFeed, follow, unfollow } from '../../service/memberApi';
 import {petImgListInMyPageRequest} from "../../service/petApi.jsx";
 import { parseJSON } from 'date-fns';
+import { storageURL } from '../../utils/single.js';
 
 
 const MyPageComp = ({ nickname }) => {
@@ -126,7 +127,7 @@ const MyPageComp = ({ nickname }) => {
                 </IconButton>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, justifyContent: 'center' }}>
-                <Avatar src={`https://kr.object.ncloudstorage.com/palettepets/member/Profile/${user.img}`} sx={{ width: 190, height: 190, mr: 2 }} />
+                <Avatar src={`${storageURL}/member/Profile/${user.img}`} sx={{ width: 190, height: 190, mr: 2 }} />
                 <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center',color: 'black', ml: 8 }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mr: 4 }}>
                         <Typography>{user.feeds}</Typography>
@@ -237,7 +238,7 @@ const MyPageComp = ({ nickname }) => {
                     <Box
                         key={index}
                         component="img"
-                        src={`https://kr.object.ncloudstorage.com/palettepets/pet/img/${pet.imgUrl}`}
+                        src={`${storageURL}/pet/img/${pet.imgUrl}`}
                         alt={`pet-${index}`}
                         sx={{ width: 150, height: 150, objectFit: 'cover', display: 'inline-block', mr: 1 }}
                         onClick={() => navigate(`/pet/details/${pet.petId}`)}
@@ -281,7 +282,7 @@ const MyPageComp = ({ nickname }) => {
                         <Grid item xs={4} key={index}>
                             <Box
                                 component="img"
-                                src={`https://kr.object.ncloudstorage.com/palettepets/feed/img/${feed.img}`}
+                                src={`${storageURL}/feed/img/${feed.img}`}
                                 alt={`feed-${index}`}
                                 sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 onClick={() => navigate(`/member/feed/detail/${feed.feedId}`)}

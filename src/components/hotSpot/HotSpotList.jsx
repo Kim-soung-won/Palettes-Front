@@ -5,6 +5,7 @@ import "../../styles/hotspot/hotSpot.css";
 import VisibilityIcon from "@mui/icons-material/Visibility.js";
 import {checkIsManager, getAllHostSpotList} from "../../service/hotSpotApi.jsx";
 import BuildIcon from '@mui/icons-material/Build';
+import {storageURL} from "../../utils/single";
 
 const HotSpotList = () => {
 
@@ -54,7 +55,7 @@ const HotSpotList = () => {
                                                objectFit: 'cover', // 이미지 비율을 유지하면서 크기 조정
                                                objectPosition: 'center' // 이미지의 중심을 기준으로 자르기
                                            }}
-                                           image={"https://kr.object.ncloudstorage.com/palettepets/hotspot/" + hotSpot.imgUrl}
+                                           image={`${storageURL}/palettepets/hotspot/` + hotSpot.imgUrl}
                                            alt={hotSpot.placeName}/>
                                     <ListItemText
                                         primary={hotSpot.placeName}

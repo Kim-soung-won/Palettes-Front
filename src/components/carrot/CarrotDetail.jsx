@@ -13,6 +13,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import connectChat from '../../utils/connectChat';
+import { storageURL } from '../../utils/single';
 
 
 const CarrotDetail = () => {
@@ -141,14 +142,14 @@ const PrevArrow = ({ onClick }) => {
       <Slider {...settings} className="image-slider">
             {imgList.map((img, index) => (
               <div key={index} className="imageTool">
-                <img className="image" src={ img ? `https://kr.object.ncloudstorage.com/palettepets/carrot/img/${img}` : image} alt={`Image ${index}`} style={{height:"450px", width:"400px"}} />
+                <img className="image" src={ img ? `${storageURL}/carrot/img/${img}` : image} alt={`Image ${index}`} style={{height:"450px", width:"400px"}} />
               </div>
             ))}
           </Slider>
         </div>
         <div className="content-container">
           <div className="seller-info">
-            <img src={`https://kr.object.ncloudstorage.com/palettepets/member/Profile/${carrot.memberImg}`} alt="Seller" />
+            <img src={`${storageURL}/member/Profile/${carrot.memberImg}`} alt="Seller" />
             <span className="seller-name">{carrot.memberNickname}</span>
           </div>
         <div>

@@ -19,6 +19,7 @@ import BuildIcon from "@mui/icons-material/Build.js";
 import Swal from "sweetalert2";
 import {Col, Row} from 'react-bootstrap';
 import "./../../styles/toast/toast.css"
+import {storageURL} from "../../utils/single";
 
 const HotSpotDetails = () => {
 
@@ -193,7 +194,7 @@ const HotSpotDetails = () => {
                                         {hotspot.imgList.map((imgSrc, index) => (
                                             <div key={imgSrc.imgHotSpotId}>
                                                 <img
-                                                    src={"https://kr.object.ncloudstorage.com/palettepets/hotspot/" + imgSrc.imgUrl}
+                                                    src={`${storageURL}/palettepets/hotspot/` + imgSrc.imgUrl}
                                                     alt={`Hotspot image ${index + 1}`}
                                                     className="centered-image"
                                                 />
@@ -205,7 +206,7 @@ const HotSpotDetails = () => {
                                 hotspot.imgList.map((imgSrc, index) => (
                                     <div key={imgSrc.imgHotSpotId}>
                                         <img
-                                            src={"https://kr.object.ncloudstorage.com/palettepets/hotspot/" + imgSrc.imgUrl}
+                                            src={`${storageURL}/hotspot/` + imgSrc.imgUrl}
                                             alt={`Hotspot image ${index + 1}`}
                                             className="centered-image"
                                         />

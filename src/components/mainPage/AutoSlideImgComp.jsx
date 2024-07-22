@@ -4,30 +4,24 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ImgStyle from '../../styles/img.module.css';
 import '../../styles/mainPage/slider.css'
-// import images from '../../image/mainImg'
+import image1 from '../../image/main.png'
+import image2 from '../../image/hello.jpg'
+import image3 from '../../image/goodgood.gif'
 
 //필요한 이미지
 const imagess = [
     {
         imgId: 1,
-        url: `https://kr.object.ncloudstorage.com/palettepets/test/img111.jpg`,
+        url: `${image1}`,
     },
     {
         imgId: 2,
-        url: `https://kr.object.ncloudstorage.com/palettepets/test/img222.jpg`,
+        url: `${image2}`,
     },
     {
         imgId: 3,
-        url: `https://kr.object.ncloudstorage.com/palettepets/test/img333.jpg`,
+        url: `${image3}`,
     },
-    {
-        imgId: 4,
-        url: `https://kr.object.ncloudstorage.com/palettepets/test/img444.png`,
-    },
-    {
-        imgId: 5,
-        url: `https://kr.object.ncloudstorage.com/palettepets/test/img555.jpg`,
-    }
 ];
 
 const NextArrow = ({ onClick }) => {
@@ -55,7 +49,7 @@ const settings = {
     infinite: true,      // 슬라이드가 끝까지 가면 다시 처음으로 반복
     speed: 500,         // 속도
     autoplay: true,      // 자동 재생
-    autoplaySpeed: 2000, // 자동 재생 속도
+    autoplaySpeed: 1000, // 자동 재생 속도
     slidesToShow: 1,     // 한 번에 보여줄 슬라이드 개수
     slidesToScroll: 1,   // 한 번에 넘어가는 슬라이드 개수
     arrows: false

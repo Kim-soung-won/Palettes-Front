@@ -13,6 +13,7 @@ import { getUpdateArticle, resistUpdateArticle } from '../../../service/ArticleS
 import useToast from '../../../hooks/useToast.jsx';
 import styled from 'styled-components';
 import { Box } from '@mui/system';
+import { storageURL } from '../../../utils/single';
 
 
 const initialForm = {
@@ -39,7 +40,7 @@ const Overlay = styled.div`
 `;
 
 const imageAsFile = (url) => {
-    const fullUrl = `https://kr.object.ncloudstorage.com/palettepets/article/img/${url}`
+    const fullUrl = `${storageURL}/article/img/${url}`
     const blob = new Blob([JSON.stringify(fullUrl)], { type: "application/json" });
     const file = new File([blob], url, { type: blob.type });
     return file
@@ -75,7 +76,7 @@ const ArticleUpdateForm = () => {
                 content: response.content,
                 title: response.title
             })
-            const imgArray = response.images && response.images.map(image => `https://kr.object.ncloudstorage.com/palettepets/article/img/${image.imgUrl}`);
+            const imgArray = response.images && response.images.map(image => `${storageURL}/article/img/${image.imgUrl}`);
 
             const files = response.images && response.images.map((item) =>
                 imageAsFile(item.imgUrl)

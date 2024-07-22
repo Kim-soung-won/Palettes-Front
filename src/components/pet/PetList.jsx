@@ -9,6 +9,7 @@ import { styled } from '@mui/system';
 import "./../../styles/pet/slickArrows.css"
 import {petListRequest} from "../../service/petApi.jsx";
 import {CardImg} from "react-bootstrap";
+import { storageURL } from '../../utils/single.js';
 
 const RoundedCardMedia = styled(CardMedia)(({ theme }) => ({
     borderRadius: '50%',
@@ -130,7 +131,7 @@ const PetList = () => {
                     <RoundedCardMedia
                         component="img"
                         height="200"
-                        image={"https://kr.object.ncloudstorage.com/palettepets/pet/" + petList[0].petImage}
+                        image={`${storageURL}/pet/` + petList[0].petImage}
                         alt={petList[0].petName}
                     />
                     <CardContent>
@@ -156,7 +157,7 @@ const PetList = () => {
                                 <RoundedCardMedia
                                     component="img"
                                     height="200"
-                                    image={"https://kr.object.ncloudstorage.com/palettepets/pet/" + pet.petImage}
+                                    image={`${storageURL}/pet/` + pet.petImage}
                                     alt={pet.petName}
                                 />
                                 <CardContent>

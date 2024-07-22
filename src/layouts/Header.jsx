@@ -23,6 +23,7 @@ import LoginIcon from '@mui/icons-material/Login';
 
 import base64 from 'base-64';
 import {getMemberNickname} from "../service/memberApi.jsx";
+import logo from '../image/header/logo.png';
 
 export default function Header() {
     const navigate = useNavigate();
@@ -226,7 +227,7 @@ export default function Header() {
                         <Box
                             component="img"
                             alt="logo"
-                            src="https://kr.object.ncloudstorage.com/palettepets/logo/logo.png"
+                            src={logo}
                             onClick={goToMain}
                             sx={{
                                 width: isMobileView ? '30%' : '40%',

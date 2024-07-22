@@ -10,6 +10,7 @@ import {styled} from '@mui/system';
 import {checkIsMaster, petDeleteRequest, petDetailRequest} from "../../service/petApi.jsx";
 import PetImgForm from "./PetImgForm.jsx";
 import Swal from "sweetalert2";
+import { storageURL } from '../../utils/single.js';
 
 const RoundedCardMedia = styled(CardMedia)({
     borderRadius: '50%',
@@ -139,7 +140,7 @@ const PetDetails = () => {
                 <RoundedCardMedia
                     component="img"
                     height="300"
-                    image={"https://kr.object.ncloudstorage.com/palettepets/pet/" + pet.petImage}
+                    image={`${storageURL}/pet/` + pet.petImage}
                     alt={pet.petName}
                 />
                 <CardContent sx={{p: 3}}>
