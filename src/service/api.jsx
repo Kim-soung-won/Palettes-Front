@@ -45,15 +45,15 @@ export const login = (dto) => {
     }, {
         headers: jsonHeaders
     })
-        .then((response) => {
-            const token = response.headers.authorization;
-            return token;
-        })
-        .catch((error) => {
-            console.error(error);
-            console.error(error.response.data);
-            return error.response.data;
-        });
+    .then((response) => {
+        const token = response.headers.authorization;
+        return token;
+    })
+    .catch((error) => {
+        console.error(error);
+        console.error(error.response.data);
+        return error.response.data;
+    });
 }
 
 // naver login 로직

@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import ReactQuill from 'react-quill';
 import useToast from '../../../hooks/useToast';
 import '../../../styles/article/articleView.css'
+import { storageURL } from '../../../utils/single';
 
 //모달창 css
 const style = {
@@ -184,7 +185,7 @@ const ArticleView = () => {
         </IconButton>
         <CardHeader
           avatar={
-            <Avatar alt={created_who} src={`https://kr.object.ncloudstorage.com/palettepets/member/Profile/${memberImage}`} />
+            <Avatar alt={created_who} src={`${storageURL}/member/Profile/${memberImage}`} />
           }
           action={
             token === '' ? null :
@@ -232,7 +233,7 @@ const ArticleView = () => {
             component="img"
             width="100%"
             height="100%"
-            image={`https://kr.object.ncloudstorage.com/palettepets/article/img/${item.imgUrl}`}
+            image={`${storageURL}/article/img/${item.imgUrl}`}
             alt={index}
             sx={{ width: '50%', margin: '10px auto', border: '1px solid rgba(0,0,0,0.3)', borderRadius: '20px', padding: '2px' }}
           />)

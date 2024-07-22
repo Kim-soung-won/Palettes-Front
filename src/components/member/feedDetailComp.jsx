@@ -6,6 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { GetFeed, DeleteFeed } from '../../service/memberApi'; // API 함수들을 가져옵니다.
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import '../../styles/loginPage/mypage.css';
+import { storageURL } from '../../utils/single';
 
 const FeedDetailComp = ({ onDeleteSuccess }) => {
     const { feedId } = useParams();
@@ -103,7 +104,7 @@ const FeedDetailComp = ({ onDeleteSuccess }) => {
                         <Box key={index}>
                             <Box
                                 component="img"
-                                src={`https://kr.object.ncloudstorage.com/palettepets/feed/img/${image}`}
+                                src={`${storageURL}/feed/img/${image}`}
                                 alt={`feed-detail-${index}`}
                                 sx={{ width: '100%', height: 'auto', mb: 2 }}
                             />

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {following } from '../../service/memberApi'; // API 호출 함수 경로에 맞게 수정
 import { Box, Typography, Avatar, Button, Grid, IconButton } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { storageURL } from '../../utils/single';
 
 const FollowingComp = ({ nickname }) => {
   const navigate = useNavigate();
@@ -77,7 +78,7 @@ const FollowingComp = ({ nickname }) => {
               onClick={() => navigate(`/member/${following.nickname}`)}
             >
               <img
-                src={`https://kr.object.ncloudstorage.com/palettepets/member/Profile/${following.profile}`}
+                src={`${storageURL}/member/Profile/${following.profile}`}
                 style={{ borderRadius: '50%', marginRight: '10px', width: '50px', height: '50px' }} // 이미지 크기 설정
               />
               <span style={{color: 'black'}}>{following.nickname}</span>

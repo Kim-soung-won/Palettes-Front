@@ -6,6 +6,7 @@ import TvIcon from '@mui/icons-material/Tv';
 import { useNavigate } from 'react-router-dom';
 import { Box, Stack, maxWidth, useMediaQuery } from '@mui/system';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import { storageURL } from '../../utils/single';
 
 const BoardPageItem = (articles) => {
     const { article } = articles
@@ -108,7 +109,7 @@ const BoardPageItem = (articles) => {
                     </div>
                     {
                         images.length > 0 &&
-                        <div className="Item-image"><img src={`https://kr.object.ncloudstorage.com/palettepets/article/img/${images[0].imgUrl}`} alt='image'  /></div>
+                        <div className="Item-image"><img src={`${storageURL}/article/img/${images[0].imgUrl}`} alt='image'  /></div>
                     }
                 </div>
 

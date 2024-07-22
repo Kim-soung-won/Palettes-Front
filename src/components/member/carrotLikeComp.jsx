@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {getCarrotLike} from '../../service/memberApi';
 import '../../styles/carrot/CarrotList.css';
 import image from '../../image/icon-photo.png';
+import { storageURL } from '../../utils/single';
 
 const CarrotUserList = () => {
     const navigate = useNavigate();
@@ -49,7 +50,7 @@ const CarrotUserList = () => {
               carrot.map(carrot =>
                   <div className="product-item-container" onClick={() => navigate(`/carrot/details/${carrot.carrotId}`)}>
                   <div className="product-item" key={carrot.carrotId}>
-                      <img src={carrot.carrotImg ? `https://kr.object.ncloudstorage.com/palettepets/carrot/img/${carrot.carrotImg}` : image} alt="이미지" className="product-image" />
+                      <img src={carrot.carrotImg ? `${storageURL}/carrot/img/${carrot.carrotImg}` : image} alt="이미지" className="product-image" />
                       <div className="product-info">
                           {carrot.carrotState === 1 ? (<h4 style={{color : "green"}}>거래중</h4>) : null}
                           {carrot.carrotState === 2 ? (<h4 style={{color : "gray"}}>거래완료</h4>) : null}
