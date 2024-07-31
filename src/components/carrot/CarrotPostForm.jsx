@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import ImageUpdate from './ImageUpdate';
 import img from '../../image/icon-image.png'
+import { Toast } from '../../utils/single';
 
 
 const CarrotPostForm = () => {
@@ -64,7 +65,11 @@ const CarrotPostForm = () => {
       formData.append('carrotPrice', carrotPrice);
 
       if (files.length == 0) {
-        alert('거래글은 이미지를 꼭! 업로드해주세요.');
+        Toast.fire({
+          icon: 'error',
+          title: '거래글은 이미지를 업로드해주세요!!',
+          width: 300
+        })
         return;
       }
 

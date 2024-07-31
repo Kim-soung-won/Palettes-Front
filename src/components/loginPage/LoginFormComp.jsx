@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { saveToken } from "../../store/MemberSlice.js";
 import {url} from '../../utils/single.js';
-import Swal from 'sweetalert2';
+import { Toast } from '../../utils/single.js';
 import "./../../styles/toast/toast.css"
 
 const LoginFormComp = () => {
@@ -15,20 +15,6 @@ const LoginFormComp = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        },
-        customClass: {
-            container: 'toastContainer',
-        }
-    });
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
