@@ -62,6 +62,12 @@ const CarrotPostForm = () => {
       formData.append('carrotContent', carrotContent);
       formData.append('carrotTag', carrotTag);
       formData.append('carrotPrice', carrotPrice);
+
+      if (files.length == 0) {
+        alert('거래글은 이미지를 꼭! 업로드해주세요.');
+        return;
+      }
+
       files.forEach((imgList) => {
         formData.append('files', imgList);
       });
