@@ -27,6 +27,14 @@ const LoginFormComp = () => {
         }
     }, [location]);
 
+    const socialLogin = () =>{
+        Toast.fire({
+            icon: 'error',
+            title: '현재 소셜 로그인은 제공하지 않습니다.',
+            width: 300
+        });
+    }
+
     const requestLogin = async (e) => {
         e.preventDefault();
         try {
@@ -92,10 +100,10 @@ const LoginFormComp = () => {
                     <span className={LoginStyle.separator}>|</span>
                     <Link to="/join" className={LoginStyle.link}>회원가입</Link>
                 </div>
-                <Link to={`${url}/oauth2/authorization/naver`} className={LoginStyle.link}>
+                <div className={LoginStyle.link} onClick={socialLogin}>
                     <img
                         src='https://clova-phinf.pstatic.net/MjAxODAzMjlfOTIg/MDAxNTIyMjg3MzM3OTAy.WkiZikYhauL1hnpLWmCUBJvKjr6xnkmzP99rZPFXVwgg.mNH66A47eL0Mf8G34mPlwBFKP0nZBf2ZJn5D4Rvs8Vwg.PNG/image.png'className={LoginStyle.naverImg}/>
-                </Link>
+                </div>
             </div>
         </div>
     );
