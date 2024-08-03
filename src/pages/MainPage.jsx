@@ -5,6 +5,7 @@ import {useLocation} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {saveToken} from "../store/MemberSlice.js";
 import Cookies from 'js-cookie';
+import axios from "axios";
 
 const MainPage = () => {
 
@@ -22,7 +23,12 @@ const MainPage = () => {
             // Authorization 쿠키 제거
             Cookies.remove('Authorization');
         }
-    }, []);
+        axios.get('/hello')
+            .then(res => {
+            })
+            .catch(err => {
+            })
+    },[]);
 
     return (
         <>
