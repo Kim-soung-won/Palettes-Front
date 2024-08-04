@@ -6,6 +6,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility.js";
 import {checkIsManager, getAllHostSpotList} from "../../service/hotSpotApi.jsx";
 import BuildIcon from '@mui/icons-material/Build';
 import {storageURL} from "../../utils/single";
+import { Toast } from '../../utils/single';
 
 const HotSpotList = () => {
 
@@ -15,6 +16,12 @@ const HotSpotList = () => {
     const [isManager, setIsManager] = useState(false);
 
     useEffect(() => {
+        Toast.fire({
+            icon: 'error',
+            title: '현재 명소 데이터가 사라져서 준비중입니다.',
+            width: 300
+          })
+
         const fetchData = async () => {
             const result = await getAllHostSpotList();
             console.log("data = " , result);
