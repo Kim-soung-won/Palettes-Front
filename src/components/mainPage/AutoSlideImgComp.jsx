@@ -4,15 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ImgStyle from '../../styles/img.module.css';
 import '../../styles/mainPage/slider.css'
+import image3 from '../../image/mainsort.png'
 import image1 from '../../image/main.png'
 import image2 from '../../image/hello.jpg'
-import image3 from '../../image/goodgood.gif'
 
 //필요한 이미지
 const imagess = [
     {
         imgId: 1,
-        url: `${image1}`,
+        url: `${image3}`,
     },
     {
         imgId: 2,
@@ -20,7 +20,7 @@ const imagess = [
     },
     {
         imgId: 3,
-        url: `${image3}`,
+        url: `${image1}`,
     },
 ];
 
